@@ -42,3 +42,5 @@ config DRM_PANEL_NOVATEK_NT35516
 ```
 vc4-kms-dsi-nt35516.dtbo
 ```
+
+- Modify the .config file of the linux kernel root dir the include the CONFIG_DRM_PANEL_NOVATEK_NT35516 this will ensure the panel driver is compiled!
