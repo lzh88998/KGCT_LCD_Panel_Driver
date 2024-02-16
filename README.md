@@ -2,11 +2,15 @@
 
 
 
-## Getting started
+## Component Description
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- panel-novatek-nt35516.c
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Raspberry Pi OS driver. Need to add to Raspberry Pi Linux kernel re-build and update the kernel to take effect. Please refer to this [link](https://www.raspberrypi.com/documentation/computers/linux_kernel.html) for details.
+
+- vc4-kms-dsi-nt35516-overlay.dts
+
+Raspberry Pi [device tree overlay component](https://www.raspberrypi.com/documentation/computers/configuration.html#part2). Need to compile to dbto object and copy to firmware location. Building Raspberry Pi kernel will deal with this process automatically.
 
 ## Add your files
 
