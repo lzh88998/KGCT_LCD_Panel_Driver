@@ -1,0 +1,43 @@
+/*
+ * Device Tree overlay to connect a Novatek NT35516 DSI panel to DSI1.
+ * This uses 4 DSI data lanes, so can only be used with a Compute Module.
+ *
+ * Credit to forum user gizmomouse on
+ * https://www.raspberrypi.org/forums/viewtopic.php?f=98&t=253912 and
+ * Andrey Vostrukhin of Harlab for the overlay.
+ *
+ * Refer to https://github.com/harlab/CM4_LCD_LT070ME05000 for schematics and
+ * other documentation.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target = <&dsi1>;
+		__overlay__{
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			port {
+				dsi_out_port:endpoint {
+					remote-endpoint = <&panel_dsi_port>;
+				};
+			};
+
+			nt35516:nt35516@0 {
+				compatible    = "novatek,nt35516";
+				status        = "okay";
+				reg           = <0>;
+				port {
+					panel_dsi_port: endpoint {
+						remote-endpoint = <&dsi_out_port>;
+					};
+				};
+			};
+		};
+	};
+};
